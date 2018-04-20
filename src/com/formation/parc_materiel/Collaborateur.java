@@ -1,5 +1,6 @@
 package com.formation.parc_materiel;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +15,7 @@ public class Collaborateur {
 	private int identifiant;
 	private String nom;
 	private String prenom;
-	private Date dateEmbauche;
+	private LocalDate dateEmbauche;
 	private int age;
 	List<Equipement> dotation;
 
@@ -23,7 +24,7 @@ public class Collaborateur {
 		dotation = new ArrayList<>();
 	}
 
-	public Collaborateur(int identifiant, String nom, String prenom, Date dateEmbauche, int age,
+	public Collaborateur(int identifiant, String nom, String prenom, LocalDate dateEmbauche, int age,
 			List<Equipement> dotation) {
 		super();
 		this.identifiant = identifiant;
@@ -58,11 +59,11 @@ public class Collaborateur {
 		this.prenom = prenom;
 	}
 
-	public Date getDateEmbauche() {
+	public LocalDate getDateEmbauche() {
 		return dateEmbauche;
 	}
 
-	public void setDateEmbauche(Date dateEmbauche) {
+	public void setDateEmbauche(LocalDate dateEmbauche) {
 		this.dateEmbauche = dateEmbauche;
 	}
 

@@ -1,5 +1,6 @@
 package com.formation.parc_materiel;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class GenerateurEquipement extends Thread {
@@ -18,7 +19,7 @@ public class GenerateurEquipement extends Thread {
 	public void run() {
 		int i = 6;
 		while (i <= 10) {
-			Ordinateur ord = new Ordinateur(6, "E00" + i, "DELL", "Inspiron", new Date(), 2500, 3, null, "10.51.2.0");
+			Ordinateur ord = new Ordinateur(6, "E00" + i, "DELL", "Inspiron", LocalDate.now(), 2500, 3, null, "10.51.2.0");
 			try {
 				type.ajoutEquipement(ord);
 				this.sleep(500);

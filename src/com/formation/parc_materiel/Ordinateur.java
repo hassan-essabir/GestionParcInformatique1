@@ -1,5 +1,6 @@
 package com.formation.parc_materiel;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Date;
  * @version V18.04
  *
  */
-public class Ordinateur extends Equipement {
+public class Ordinateur extends Equipement implements IComptabilisable {
 
 	private String adresseIP;
 
@@ -26,7 +27,7 @@ public class Ordinateur extends Equipement {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Ordinateur(int identifiant, String numeroSerie, String marque, String modele, Date dateAchat,
+	public Ordinateur(int identifiant, String numeroSerie, String marque, String modele, LocalDate dateAchat,
 			float prixAchat, int garantie, TypeEquipement type, String adresseIP) {
 		super(identifiant, numeroSerie, marque, modele, dateAchat, prixAchat, garantie, type);
 		this.setAdresseIP(adresseIP);
@@ -49,10 +50,9 @@ public class Ordinateur extends Equipement {
 	public String toString() {
 		return "Ordinateur [adresseIP=" + adresseIP + ", getIdentifiant()=" + getIdentifiant() + ", getNumeroSerie()="
 				+ getNumeroSerie() + ", getMarque()=" + getMarque() + ", getModele()=" + getModele()
-				+ ", getDateAchat()=" + getDateAchat() + ", getPrixAchat()=" + getPrixAchat() + ", getGarantie()="
-				+ getGarantie() + ", getType()=" + getType() + ", " + Outils.composeUniqueID(this) + "]";
+				+ ", getDateAchat()=" + getDateAchat() + ", getPrixAchat()=" + getPrixAchat() + "prix TTC "
+				+ calculMontantTVA(getPrixAchat()) + ", getGarantie()=" + getGarantie() + ", getType()=" + getType()
+				+ ", " + Outils.composeUniqueID(this) + "]";
 	}
-
-
 
 }

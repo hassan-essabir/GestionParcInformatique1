@@ -43,9 +43,12 @@ public abstract class Parc {
 	public synchronized void listeEquipement() {
 		System.out.println("--Equipment list");
 		Collections.sort(this.equipements);
-		for (Equipement equipement : equipements) {
-			System.out.println(equipement);
-		}
+		this.equipements.forEach(System.out::println);
+		//this.equipements.forEach(equipements -> System.out.println(equipements));
+
+//		for (Equipement equipement : equipements) {
+//			System.out.println(equipement);
+//		}
 	}
 
 	public void supprEquipement(Equipement eq) {

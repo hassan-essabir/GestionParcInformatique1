@@ -16,6 +16,10 @@ public class ParcMateriel extends Parc {
 		System.out.println("--Equipement added");
 	}
 	
+	public float getGarantieMoyenne() {
+		
+		return (Float) null;
+	}
 //	public void ajoutEquipement(Ordinateur o) {
 //		super.ajoutEquipement(o);
 //	}

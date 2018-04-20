@@ -1,5 +1,6 @@
 package com.formation.parc_materiel;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -22,7 +23,7 @@ public class Serveur extends Ordinateur {
 	}
 
 	public Serveur(int identifiant, String numeroSerie, String marque,
-			String modele, Date dateAchat, float prixAchat, int garantie,
+			String modele, LocalDate dateAchat, float prixAchat, int garantie,
 			TypeEquipement type, String adresseIP, String role) {
 		super(identifiant, numeroSerie, marque, modele, dateAchat, prixAchat,
 				garantie, type, adresseIP);

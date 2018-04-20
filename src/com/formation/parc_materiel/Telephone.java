@@ -1,5 +1,6 @@
 package com.formation.parc_materiel;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -21,7 +22,7 @@ public class Telephone extends Equipement {
 		this.setNumeroAppel(numeroAppel);
 	}
 
-	public Telephone(int identifiant, String numeroSerie, String marque, String modele, Date dateAchat, float prixAchat,
+	public Telephone(int identifiant, String numeroSerie, String marque, String modele, LocalDate dateAchat, float prixAchat,
 			int garantie, TypeEquipement type, String numeroAppel) {
 		super(identifiant, numeroSerie, marque, modele, dateAchat, prixAchat, garantie, type);
 		this.setNumeroAppel(numeroAppel);

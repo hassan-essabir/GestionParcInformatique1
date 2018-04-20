@@ -25,7 +25,8 @@ public class EquipementDAO {
 			statement.setString(1, eq.getNumeroSerie());
 			statement.setString(2, eq.getMarque());
 			statement.setString(3, eq.getModele());
-			statement.setDate(4, new java.sql.Date(eq.getDateAchat().getTime()));
+			//statement.setDate(4, new java.sql.Date(eq.getDateAchat().getTime()));
+			
 			statement.setFloat(5, eq.getPrixAchat());
 			statement.setInt(6, eq.getGarantie());
 			statement.executeUpdate();
@@ -50,7 +51,7 @@ public class EquipementDAO {
 				eq = new Ordinateur(rs.getString("marque"), rs.getString("modele")) ;
 				eq.setIdentifiant(rs.getInt("id"));
 				eq.setNumeroSerie(rs.getString("numeroSerie"));
-				eq.setDateAchat(new Date(rs.getDate("dateAchat").getTime()));
+				//eq.setDateAchat(new Date(rs.getDate("dateAchat").getTime()));
 				eq.setPrixAchat(rs.getFloat("prixAchat"));
 				eq.setGarantie(rs.getInt("garantie"));
 			}
@@ -76,7 +77,7 @@ public class EquipementDAO {
 				Equipement eq = new Ordinateur(rs.getString("marque"), rs.getString("modele"));
 				eq.setIdentifiant(rs.getInt("id"));
 				eq.setNumeroSerie(rs.getString("numeroSerie"));
-				eq.setDateAchat(new Date(rs.getDate("dateAchat").getTime()));
+				//eq.setDateAchat(new Date(rs.getDate("dateAchat").getTime()));
 				eq.setPrixAchat(rs.getFloat("prixAchat"));
 				eq.setGarantie(rs.getInt("garantie"));
 				equipements.add(eq);

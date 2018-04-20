@@ -1,8 +1,8 @@
 package com.formation.parc_materiel;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.Period;
 
 enum TypeEquipement {
 	FIXE, PORTABLE
@@ -19,7 +19,7 @@ public abstract class Equipement implements Comparable<Equipement> {
 	private String numeroSerie;
 	private String marque;
 	private String modele;
-	private Date dateAchat;
+	private LocalDate dateAchat;
 	private float prixAchat;
 	private int garantie;
 	private TypeEquipement type;
@@ -35,14 +35,14 @@ public abstract class Equipement implements Comparable<Equipement> {
 		this.modele = modele;
 	}
 
-	public Equipement(int identifiant, String numeroSerie, String marque, String modele, Date dateAchat,
+	public Equipement(int identifiant, String numeroSerie, String marque, String modele, LocalDate dateAchat2,
 			float prixAchat, int garantie, TypeEquipement type) {
 		super();
 		this.identifiant = identifiant;
 		this.numeroSerie = numeroSerie;
 		this.marque = marque;
 		this.modele = modele;
-		this.dateAchat = dateAchat;
+		this.dateAchat = dateAchat2;
 		this.prixAchat = prixAchat;
 		this.garantie = garantie;
 		this.type = type;
@@ -69,21 +69,29 @@ public abstract class Equipement implements Comparable<Equipement> {
 
 	public boolean isGarantieExpiree() {
 		boolean isGarantieExpiree = false;
-		Calendar finGarantie = Calendar.getInstance();
-		finGarantie.setTime(this.dateAchat);
-		finGarantie.add(Calendar.YEAR, garantie);
-		Date dateFinGarantie = finGarantie.getTime();
-		Date toDay = new Date();
+		// Calendar finGarantie = Calendar.getInstance();
+		// finGarantie.setTime(this.dateAchat);
+		// finGarantie.add(Calendar.YEAR, garantie);
+		// Date dateFinGarantie = finGarantie.getTime();
+		// Date toDay = new Date();
+		// long diff = Math.abs(dateFinGarantie.getTime() - toDay.getTime());
+		// long depassement = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
 
-		long diff = Math.abs(dateFinGarantie.getTime() - toDay.getTime());
-		long depassement = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+		LocalDate dateFinGarantie = this.dateAchat.plusYears(getGarantie());
+		LocalDate toDay = LocalDate.now();
 
-		if (dateFinGarantie.after(toDay)) {
+		final Period periode = Period.between(dateFinGarantie, LocalDate.now());
+
+		if (dateFinGarantie.isAfter(toDay)) {
 			// System.out.println("Garantie valable pour " + depassement + " jours");
+			System.out.println("Garantie valable pour " + periode.getYears() + " années " + periode.getMonths() + " mois "
+					+ periode.getDays() + " jours");
 			isGarantieExpiree = false;
 
 		} else {
 			// System.out.println("Garantie expirée depuis " + depassement + " jours");
+			System.out.println("Garantie valable pour " + periode.getYears() + " années " + periode.getMonths() + " mois "
+					+ periode.getDays() + " jours");
 			isGarantieExpiree = true;
 		}
 
@@ -131,12 +139,12 @@ public abstract class Equipement implements Comparable<Equipement> {
 		this.modele = modele;
 	}
 
-	public Date getDateAchat() {
+	public LocalDate getDateAchat() {
 		return dateAchat;
 	}
 
-	public void setDateAchat(Date dateAchat) {
-		this.dateAchat = dateAchat;
+	public void setDateAchat(LocalDate date) {
+		this.dateAchat = date;
 	}
 
 	public float getPrixAchat() {

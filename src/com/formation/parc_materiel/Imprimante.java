@@ -1,5 +1,6 @@
 package com.formation.parc_materiel;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 enum TypeImprimante {
@@ -24,7 +25,7 @@ public class Imprimante extends Equipement {
 		this.setTechnologie(technologie);
 	}
 
-	public Imprimante(int identifiant, String numeroSerie, String marque, String modele, Date dateAchat,
+	public Imprimante(int identifiant, String numeroSerie, String marque, String modele, LocalDate dateAchat,
 			float prixAchat, int garantie, TypeEquipement type, TypeImprimante technologie) {
 		super(identifiant, numeroSerie, marque, modele, dateAchat, prixAchat, garantie, type);
 		this.setTechnologie(technologie);
